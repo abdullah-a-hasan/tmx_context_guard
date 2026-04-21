@@ -62,14 +62,49 @@ for event in ICEGuard.convert(
 
 ### Desktop GUI
 
-1. Install pywebview: `pip install pywebview>=5.0`
-2. From the project root, run:
+See the [Desktop GUI](#desktop-gui-1) section below for full details.
+
+## Desktop GUI
+
+### Prerequisites
+
+- Python 3.7 or higher
+- `tmx-ice-guard` library installed (`pip install tmx-ice-guard`)
+- `pywebview >= 5.0` (`pip install pywebview>=5.0`)
+
+### Installation
 
 ```bash
-python gui/app.py
+pip install pywebview>=5.0
 ```
 
-The GUI lets you select one or more TMX files, choose an output folder and platform pair, and monitor per-file progress in a table.
+### Launching the GUI
+
+From the **project root**, use either of these equivalent commands:
+
+```bash
+# As a script
+python gui/app.py
+
+# As a module
+python -m gui.app
+```
+
+### What the GUI does
+
+- **Select files** — choose one or more `.tmx` files via a multi-select file dialog.
+- **Output folder** — pick the directory where converted files will be saved (each output file is named `<original>_converted.tmx`).
+- **Platform pair** — select the source platform (or *Auto* to detect it from the file header) and the target platform.
+- **Pretty-print** — optionally enable human-readable XML formatting in the output.
+- **Live progress table** — monitor per-file progress in real time as each file is processed.
+
+### Platform notes
+
+| OS | WebView backend | Notes |
+|----|-----------------|-------|
+| **Linux** | GTK / WebKit2GTK | Requires `python3-gi` and `python3-webkit2gtk` (e.g. `sudo apt install python3-gi gir1.2-webkit2-4.0`) |
+| **macOS** | Built-in WebKit | No additional dependencies needed |
+| **Windows** | Edge / WebView2 | On older versions of Windows 10 and Windows 11 you may need to install the [WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) manually |
 
 ## Supported Platforms
 
