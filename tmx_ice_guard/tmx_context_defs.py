@@ -4,12 +4,12 @@ import zlib
 # TMX platform definitions
 tmx_context_defs = {}
 
-# Phrase/Memsource
+# Transifix
 tmx_context_defs['transifix'] = {"label": "Transifix",
                                  "prev_text_prop": "context",
                                  "context_level": "tu"
                                  }
-
+# Phrase/Memsource
 tmx_context_defs['phrase'] = {"label": "Phrase",
                               "prev_text_prop": "context_prev",
                               "next_text_prop": "context_next",
@@ -19,6 +19,7 @@ tmx_context_defs['phrase'] = {"label": "Phrase",
                               "project_prop": "project",
                               }
 
+#memoQ
 tmx_context_defs['memoq'] = {"label": "memoQ",
                              "prev_text_prop": "x-context-pre",
                              "next_text_prop": "x-context-post",
