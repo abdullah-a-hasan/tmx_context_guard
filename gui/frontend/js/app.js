@@ -83,6 +83,8 @@ function populatePlatforms(platforms) {
   [sourcePlatformSel, targetPlatformSel].forEach(sel => {
     sel.innerHTML = '';
     platforms.forEach(item => {
+      // "auto" (auto-detect) only makes sense as a source option.
+      if (sel === targetPlatformSel && item.key === 'auto') return;
       const opt = document.createElement('option');
       opt.value = item.key;
       opt.textContent = item.label;
